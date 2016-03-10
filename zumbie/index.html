@@ -46,7 +46,8 @@
 				<input ng-blur ng-model="ocorrencia.numero" type="text" name="numero" class="form-control" required>
 			</div>
 
-			<button ng-click="adiciona(ocorrencia, form.$valid)" type="submit" class="btn btn-primary">Salvar</button>
+			<ng-zumbi-submit submit="adiciona(ocorrencia)"></ng-zumbi-submit>
+
 		</form>
 	</div>
 </body>

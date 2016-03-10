@@ -4,12 +4,8 @@ angular.module('app').controller('zumbisCtrl', function($scope) {
 
 	$scope.ocorrencias = [];
 
-	$scope.adiciona = function(ocorrencia, formIsValid) {
-		if(formIsValid){
-			$scope.ocorrencias.push(angular.copy(ocorrencia));
-		} else {
-			alert('form invalido');
-		}
+	$scope.adiciona = function(ocorrencia) {
+		$scope.ocorrencias.push(angular.copy(ocorrencia));
 	}
 });
 
@@ -26,6 +22,27 @@ angular.module('app').directive('ngBlur', function() {
 					$element.removeClass('error');
 				};
 			});
+		}
+	};
+});
+
+angular.module('app').directive('ngZumbiSubmit', function() {
+
+	return {
+		restrict: 'E',
+		require: '^form',
+		scope: {
+			submit: '&'
+		},
+		template: '<button type="submit" class="btn btn-primary">Salvar</button>',
+		link: function($scope, $element, $attrs, formCtrl) {
+			$element.on('click', function(){
+				if (formCtrl.$valid) {
+					$scope.submit();
+				} else {
+					alert('Form Invalido');
+				}
+			})
 		}
 	};
 });
