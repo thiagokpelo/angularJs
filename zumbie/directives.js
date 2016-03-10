@@ -36,7 +36,7 @@ angular.module('app').directive('ngZumbiSubmit', function() {
 	};
 });
 
-angular.module('app').directive('ngCepValidator', function() {
+angular.module('app').directive('ngCepValidator', function($http, $rootScope) {
 
 	return {
 		restrict: 'A',
@@ -46,6 +46,9 @@ angular.module('app').directive('ngCepValidator', function() {
 			$scope.$watch($attrs.ngModel, function(value) {
 				if (value) {
 					if (value.match(/^[0-9]{5}-[0-9]{3}$/)) {
+						$http.get('http://api.postmon.com.br/v1/cep/' + value).then(function(response) {
+							$rootScope.$broadcast('cep', response.data);
+						});
 						// setar como valido
 						ngModel.$setValidity($attrs.ngModel, true);
 					} else {
