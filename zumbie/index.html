@@ -46,7 +46,7 @@
 				<input ng-blur ng-model="ocorrencia.numero" type="text" name="numero" class="form-control" required>
 			</div>
 
-			<button ng-click="adiciona(ocorrencia)" ng-disabled="form.$invalid" type="submit" class="btn btn-primary">Salvar</button>
+			<button ng-click="adiciona(ocorrencia, form.$valid)" type="submit" class="btn btn-primary">Salvar</button>
 		</form>
 	</div>
 </body>
