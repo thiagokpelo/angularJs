@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Example of ng-model - Angular</title>
+
+	<script src="lib/angular.min.js"></script>
+</head>
+<body>
+	<h2>Usando a diretiva ng-model</h2>
+
+	<div>
+		<label for="nome">Nome:</label>
+		<input type="text" name="nome" id="nome" ng-model="nome" placeholder="Digite seu nome">
+		<hr>
+		<h3>Bem vindo, {{ nome }}!</h3>
+	</div>
+</body>
+</html>

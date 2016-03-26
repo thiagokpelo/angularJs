@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Example of ng-init - Angular</title>
+
+	<script src="lib/angular.min.js"></script>
+</head>
+<body>
+	<h2>Usando a diretiva ng-init</h2>
+
+	<h3>Iniciando variável e fazendo cálculo</h3>
+	<div ng-init="quantidade = 4; valor = 20">
+		<div>
+			Total = {{ quantidade * valor }}
+		</div>
+		<div>
+			Total = <span ng-bind="quantidade * valor"></span>
+		</div>
+	</div>
+	<br>
+	<h3>Iniciando Array e printando pelo seu índice</h3>
+	<div ng-init="notas = [10, 9, 7, 5, 3]">
+		<div>
+			Terceira Nota = {{ notas[2] }}
+		</div>
+		<div>
+			Quinta Nota = <span ng-bind="notas[4]"></span>
+		</div>
+	</div>
+	<br>
+	<h3>Iniciando Objetos</h3>
+	<div ng-init="pessoa = {nome: 'Thiago', idade: 28}">
+		<div>
+			Nome = {{ pessoa.nome }}
+		</div>
+		<div>
+			Idade = <span ng-bind="pessoa.idade"></span>
+		</div>
+	</div>
+</body>
+</html>

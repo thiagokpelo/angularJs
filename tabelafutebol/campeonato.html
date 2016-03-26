@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="campeonato">
+<head>
+	<meta charset="UTF-8">
+	<title>Campeonato Brasileiro - Angular</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="lib/angular.min.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body>
+
+	<div ng-controller="campeonatoCtrl" class="container">
+		<div class="jumbotron">
+			<h1 class="text-center">{{ titulo }}</h1>
+		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Time</th>
+					<th>Pontos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="time in times">
+					<td><img ng-src="{{ time.escudo }}" alt="{{ time.nome }}" style="width: 45px; height: 45px;"></td>
+					<td>{{ time.nome }}</td>
+					<td>{{ time.pontos }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<hr>
+
+		<input class="form-control" type="text" ng-model="time.nome" placeholder="Nome do time">
+		<input class="form-control" type="text" ng-model="time.pontos" placeholder="Quantos pontos">
+		<input class="form-control" type="text" ng-model="time.escudo" placeholder="Insira o escudo do time">
+		<button class="btn btn-primary" ng-click="incluirTime(time)" ng-disabled="!time.nome || !time.pontos || !time.escudo">Incluir time</button>
+		<br>
+		{{ time }}
+		<br><br>
+		{{ times }}
+	</div>
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>

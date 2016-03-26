@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Example of ng-repeat - Angular</title>
+
+	<script src="lib/angular.min.js"></script>
+</head>
+<body ng-init="times = ['Cruzeiro', 'Vasco', 'Palmeiras', 'Coritiba']">
+	<h2>Usando a diretiva ng-repeat</h2>
+
+	<div>
+		<table border="1">
+			<tbody>
+				<tr ng-repeat="time in times">
+					<td>{{ time }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
