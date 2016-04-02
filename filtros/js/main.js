@@ -11,6 +11,5 @@ var app = angular.module("filtros", [])
         ];
         
         $scope.hoje = new Date();
-        $scope.alfabeto = "abcdefghijklmnopqrstuvxz";
-        $scope.numeroLinhas = 3;
+        $scope.coluna = 'nome';
     });
