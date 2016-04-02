@@ -12,4 +12,7 @@ var app = angular.module("filtros", [])
         
         $scope.hoje = new Date();
         $scope.coluna = 'nome';
+        
+        $scope.alfabeto = 'abcdefghijklmnopqrstuvxywz';
+        $scope.numeroLinhas = 3;
     });
