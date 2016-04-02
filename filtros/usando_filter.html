@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="filtros">
+<head>
+	<meta charset="UTF-8">
+	<title>Filtros 01 - Angular</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-locale_pt-br.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body ng-controller="filtrosCtrl">
+    
+    <div class="container">
+
+        <div class="well">
+            <h2>Kpelo.com.br</h2>
+            <br><br>
+            {{hoje | date:"dd MMMM, yyyy"}}
+
+            <hr>
+            
+            Procurar:
+            <input class="form-control" type="text" placeholder="Procurar funcionário" ng-model="criterio">
+            <br>
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Aniversário</th>
+                        <th>Sexo</th>
+                        <th>Salário (número)</th>
+                        <th>Salário (moeda)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="func in funcionarios | filter:{nome:criterio}">
+                        <td>{{func.nome | uppercase}}</td>
+                        <td>{{func.nascimento | date: "dd/MM/yyyy"}}</td>
+                        <td>{{func.sexo | lowercase}}</td>
+                        <td class="text-right">{{func.salario | number:2}}</td>
+                        <td class="text-right">{{func.salario | currency}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+            
+        </div>
+	
+	</div>
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
