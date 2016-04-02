@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="filtros">
+<head>
+	<meta charset="UTF-8">
+	<title>Filtros 01 - Angular</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-locale_pt-br.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body ng-controller="filtrosCtrl">
+    
+    <div class="container">
+
+        <div class="well">
+            <h2>Kpelo.com.br</h2>
+            <br><br>
+            {{hoje | date:"dd MMMM, yyyy"}}
+
+            <hr>
+            
+            Número de linhas a exibir
+            <input class="form-control" type="number" step="1" min="0" max="5" ng-model="numeroLinhas">
+            <br>
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Aniversário</th>
+                        <th>Sexo</th>
+                        <th>Salário (número)</th>
+                        <th>Salário (moeda)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="func in funcionarios | limitTo:numeroLinhas">
+                        <td>{{func.nome | uppercase}}</td>
+                        <td>{{func.nascimento | date: "dd/MM/yyyy"}}</td>
+                        <td>{{func.sexo | lowercase}}</td>
+                        <td>{{func.salario | number:2}}</td>
+                        <td>{{func.salario | currency}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+            
+            <h3>Filtro LimitTo</h3>
+            
+            Alfabeto: {{alfabeto}}<br>
+            Alfabeto (limitado a 5 letras): {{alfabeto | limitTo:5}}<br>
+            Alfabeto (limitado a 7 letras a partir do 5º elemento): {{alfabeto | limitTo:7:4}}<br>
+            Alfabeto (limitado a 10 letras caixa alta): {{alfabeto | limitTo:10 | uppercase}}<br>
+            
+        </div>
+	
+	</div>
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
