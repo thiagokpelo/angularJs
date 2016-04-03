@@ -1,0 +1,9 @@
+<ul ng-repeat="func in funcionarios | limitTo:numeroLinhas">
+    <li>{{func.nome | uppercase}}
+        <ul>
+            <li>{{func.nascimento | date: "dd/MM/yyyy"}}</li>
+            <li>{{func.sexo | lowercase}}</li>
+            <li>{{func.salario | currency}}</li>
+        </ul>
+    </li>
+</ul>

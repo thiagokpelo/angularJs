@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="include">
+<head>
+	<meta charset="UTF-8">
+	<title>Filtros 01 - Angular</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-locale_pt-br.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body ng-controller="IncludeCtrl">
+    
+    <div class="container">
+
+        <div class="well">
+
+            <div ng-include="'cabecalho.html'"></div>
+
+            Selecione o modo de exibição:
+            <select ng-model="funcionariosView" class="form-control">
+            <br>
+                <option value="funcionariosTabela.html">Tabela</option>
+                <option value="funcionariosLista.html">Lista</option>
+            </select>
+            <div ng-include="funcionariosView"></div>
+
+	</div>
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Aniversário</th>
+            <th>Sexo</th>
+            <th>Salário (número)</th>
+            <th>Salário (moeda)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="func in funcionarios | limitTo:numeroLinhas">
+            <td>{{func.nome | uppercase}}</td>
+            <td>{{func.nascimento | date: "dd/MM/yyyy"}}</td>
+            <td>{{func.sexo | lowercase}}</td>
+            <td>{{func.salario | currency}}</td>
+        </tr>
+    </tbody>
+
+</table>
