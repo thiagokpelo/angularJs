@@ -1,5 +1,3 @@
-/// <reference path="script.js" />
-
 app.factory('stringService', function () {
 
 	return {
