@@ -8,7 +8,10 @@ app.controller('productsCtrl', function ($scope, $http) {
     
         .then(function (response) {
             $scope.produtos = response.data;
-            console.log(response.data);
+            console.log('Success:', response.data);
+        })
+        .catch(function (error) {
+            console.log('Error: ' + error);
     })
     
 });
